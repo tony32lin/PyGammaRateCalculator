@@ -32,7 +32,7 @@ def cli(pulsar_si,nebula_si,emin,ofname,e0,irf):
         df_l.append(df)
     df = pd.concat(df_l)
     df['E0'] = df['E0']*1000
-    df['EprimeMin'] = df['EprimeMin']*1000
+    df['EPrimeMin'] = df['EPrimeMin']*1000
     df.to_csv(ofname,index=False)
 
 if __name__ == '__main__':
