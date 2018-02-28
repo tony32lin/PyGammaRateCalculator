@@ -1,0 +1,23 @@
+package:
+  name: pygammaratecalculator 
+  version: "0.1"
+
+source:
+  git_rev: master 
+  git_url: https://github.com/tony32lin/PyGammaRateCalculator 
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - numpy
+    - pandas
+    - click
+test:
+  imports:
+    - PyGammaRateCalculator 
+    - ROOT
+about:
+  home: https://github.com/tony32lin/PyGammaRateCalculator 
