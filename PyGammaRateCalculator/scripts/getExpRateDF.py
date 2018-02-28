@@ -51,8 +51,8 @@ def getExpRateDF(fname,dZe,energy,
                         'SI_P2':pul_SI_l,
                         'SI_Nebula':nebula_SI_l,
                         'E0':E0_l,
-                        'Rate_P2':rate_pul_l,
-                        'Rate_Nebula':rate_nebula_l,
+                        'P2Rate':rate_pul_l,
+                        'NebulaRate':rate_nebula_l,
                         'EprimeMin':energy_l})                                           
     return out
 
