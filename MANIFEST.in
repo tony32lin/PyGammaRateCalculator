@@ -1,0 +1,2 @@
+include PyGammaRateCalculator/root_macro/* 
+include README.md
