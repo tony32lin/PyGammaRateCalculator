@@ -26,7 +26,7 @@ def getExpRateDF(fname,dZe,energy,
        pul_SI = [pul_SI]
     if(not isinstance(nebula_SI,collections.Sequence)):
        nebula_SI = [nebula_SI]     
-
+    nsb_l       = []
     pul_SI_l    = []
     energy_l    = []
     nebula_SI_l = []
@@ -46,6 +46,7 @@ def getExpRateDF(fname,dZe,energy,
                 E0_l.append(E0)
                 rate_pul_l.append(rp)
                 rate_nebula_l.append(rn)
+                nsb_l.append(nsb)
     energy_l = list(itertools.chain(*energy_l))        
     out = pd.DataFrame({'Ze':ze_l,
                         'SI_P2':pul_SI_l,
@@ -53,6 +54,7 @@ def getExpRateDF(fname,dZe,energy,
                         'E0':E0_l,
                         'P2Rate':rate_pul_l,
                         'NebulaRate':rate_nebula_l,
-                        'EPrimeMin':energy_l})                                           
+                        'EPrimeMin':energy_l,
+                        'NSB':nsb_l})                                           
     return out
 
