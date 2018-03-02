@@ -4,15 +4,7 @@ from ROOT import gROOT
 import os
 import contextlib
 import collections
-
-__ED_inited__ = False
-
-def initED():
-    __file_path__ = os.path.dirname(os.path.realpath(__file__))
-    gROOT.ProcessLine(".L $EVNDISPSYS/lib/libVAnaSum.so")
-    gROOT.ProcessLine(".L {dirname}/root_macro/convolveEA.C+".format(dirname=__file_path__))
-    global __ED_inited__
-    __ED_inited__ = True
+from PyGammaRateCalculator.utils.root_env import EDStatus 
 
 @contextlib.contextmanager
 def CppPrintContext(verbose=True):
@@ -39,9 +31,11 @@ def IRFContext(fname,dZe,Fnorm,index,E0,nsb=250):
     h_FA.Delete()
 
 def calRate(energy,fname,dZe,fNorm,index,E0,nsb=250,verbose=False):
-    global __ED_inited__
-    if(not __ED_inited__):
-        initED()
+    #Load ED and macro
+    load = EDStatus()
+    load.loadED()
+    load.loadMacro('convolveEA.C')
+
     isList = isinstance(energy,(collections.Sequence,np.ndarray))
     if(isList):
         result = []

@@ -12,6 +12,7 @@ setup(
     ],
     entry_points='''
         [console_scripts]
+        getBkgAndGammaRate=PyGammaRateCalculator.scripts.getBkgAndGammaRate:cli 
         calCrabPulsarRate=PyGammaRateCalculator.scripts.calCrabPulsarRate:cli
     '''
 )
