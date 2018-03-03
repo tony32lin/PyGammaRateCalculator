@@ -20,8 +20,10 @@ def CppPrintContext(verbose=True):
 def IRFContext(fname,dZe,Fnorm,index,E0,nsb=250):
     irf_MC =  r.VInstrumentResponseFunctionReader();
     irf_Rec = r.VInstrumentResponseFunctionReader(); 
-    irf_MC.fillData(fname,dZe,0.5,16,index,nsb,"A_MC");
-    irf_Rec.fillData(fname,dZe,0.5,16,index,nsb,"A_Rec");
+    loaded_MC = irf_MC.fillData(fname,dZe,0.5,16,index,nsb,"A_MC");
+    loaded_Rec= irf_Rec.fillData(fname,dZe,0.5,16,index,nsb,"A_Rec");
+    if( not (loaded_MC  or loaded_Rec)):
+        raise Exception("IRF not loaded! File: {}; Ze: {}; index: {}; nsb: {}".format(fname,dZe,index,nsb))
     h_Migration_Original = irf_MC.getMigrationMatrix()
     EA_ori = irf_Rec.gEffArea_Rec
     h_FA = r.getConvolvedHist(h_Migration_Original,EA_ori,Fnorm,index,E0)
