@@ -36,8 +36,8 @@ def getExpRateDF(fname,dZe,energy,
     rate_nebula_l = []
     for ns in nebula_SI:
         for ps in pul_SI:
-            rate_nebula = calRate(energy,fname,dZe,nebula_fNorm,ns,E0)
-            rate_pul = calRate(energy,fname,dZe,pul_fNorm,ps,E0)
+            rate_nebula = calRate(energy,fname,dZe,nebula_fNorm,ns,E0,nsb=nsb)
+            rate_pul = calRate(energy,fname,dZe,pul_fNorm,ps,E0,nsb=nsb)
             energy_l.append(energy)  
             for rn,rp in zip(rate_nebula,rate_pul):
                 pul_SI_l.append(ps)  

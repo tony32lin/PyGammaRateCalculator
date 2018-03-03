@@ -7,7 +7,7 @@ import click
 @click.option('--emin','-e',multiple=True,type=float)
 @click.option('--e0','-k',multiple=True,type=float)
 @click.option('--ofname','-o',nargs=1,type=str)
-@click.option('--irf','-f',nargs=3,multiple=True,type=click.Tuple([float,float,click.Path(exists=True)]))
+@click.option('--irf','-f',nargs=3,multiple=True,type=click.Tuple([float,int,click.Path(exists=True)]))
 def cli(pulsar_si,nebula_si,emin,e0,ofname,irf):
     #check if both pulsar_si nebula_si and Emin are at least one value
     if(len(pulsar_si) ==0 or len(nebula_si) ==0 or len(emin) ==0):
