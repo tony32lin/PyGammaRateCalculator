@@ -31,6 +31,10 @@ def IRFContext(fname,dZe,Fnorm,index,E0,nsb=250):
     h_Migration_Original.Delete()
     EA_ori.Delete()
     h_FA.Delete()
+    irf_MC.Delete()
+    irf_Rec.Delete()
+    gROOT.Reset()
+    gROOT.CloseFiles()
 
 def calRate(energy,fname,dZe,fNorm,index,E0,nsb=250,verbose=False):
     #Load ED and macro
